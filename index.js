@@ -270,3 +270,12 @@ function assembleWheel(wheelRimMaterial, tireSize) {
 	return { ...wheelRim, ...wheelTire };
 }
 // console.log(assembleWheel("Plastico", "17"));
+
+//#SISTEMADESUSPENSION
+function manufactureBrakesSystem(coche, typeOfBrakes = "ABS") {
+    console.log(`Fabricando Sistema de Frenos ${typeOfBrakes}...`);
+    console.log(`(✅)Sistema de Frenos ${typeOfBrakes} fabricado con éxito.`);
+    coche.chasis.sistemaDeFrenos = typeOfBrakes;
+    return coche.chasis.sistemaDeFrenos;
+}
+console.log(manufactureBrakesSystem());
