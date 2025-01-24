@@ -172,23 +172,28 @@ function assembleDoor(doorFrameMaterial, windowMaterial) {
 
 //#ASIENTO
 function manufactureSeat(seatMaterial = "Piel") {
-    console.log(`Fabricando Asiento de ${seatMaterial}...`);
-    console.log(`(✅)Asiento de ${seatMaterial} fabricado con éxito.`);
-    return {Asiento: seatMaterial};
+	console.log(`Fabricando Asiento de ${seatMaterial}...`);
+	console.log(`(✅)Asiento de ${seatMaterial} fabricado con éxito.`);
+	return { Asiento: seatMaterial };
 }
 // const asiento = manufactureSeat();
 // console.log(asiento);
 
-
-
 //#TAPICERIA
 function manufactureUpholstery(coche = {}, upholsteryMaterial = "Piel Sintetica") {
-    console.log(`Fabricando Tapiceria de ${upholsteryMaterial}...`);
-    console.log(`Tapiceria de ${upholsteryMaterial} fabricada con éxito.`);
-    coche.carroceria.tapiceria = upholsteryMaterial;
-    return coche.carroceria.tapiceria;
+	//EL = {} TENGO QUE RETIRARLO
+	console.log(`Fabricando Tapiceria de ${upholsteryMaterial}...`);
+	console.log(`(✅)Tapiceria de ${upholsteryMaterial} fabricada con éxito.`);
+	coche.carroceria.tapiceria = upholsteryMaterial;
+	return coche.carroceria.tapiceria;
 }
-console.log(manufactureUpholstery());
+// console.log(manufactureUpholstery());
 
 //#ESTRUCTURACARROCERIA
-// function manufactureBodyPanel(coche, bodyPanelMaterial = "Fibra de Carbono")
+function manufactureBodyPanel(coche = {}, bodyPanelMaterial = "Fibra de Carbono") {
+	//EL = {} TENGO QUE RETIRARLO
+    console.log(`Fabricando Carroceria Exterior de ${bodyPanelMaterial}...`);
+    console.log(`(✅)Carroceria Exterior de ${bodyPanelMaterial} fabricada con éxito.`);
+    coche.carroceria.carroceriaExterior = bodyPanelMaterial;
+    return coche.carroceria.carroceriaExterior;
+}
