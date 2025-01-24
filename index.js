@@ -218,14 +218,21 @@ function assembleCarBody(
 		console.log(`(✅)Puerta Ensamblada:`, door);
 	}
 
-    for (let index = 0; index < seatsNumber; index++) {
-        const seat = manufactureSeat(seatMaterial);
-        coche.carroceria.asientos.push(seat);
-        console.log(`(✅)Asiento Ensamblado`);
-    }
+	for (let index = 0; index < seatsNumber; index++) {
+		const seat = manufactureSeat(seatMaterial);
+		coche.carroceria.asientos.push(seat);
+		console.log(`(✅)Asiento Ensamblado`);
+	}
 
-    manufactureUpholstery(coche, upholsteryMaterial);
-    return coche.carroceria;
+	manufactureUpholstery(coche, upholsteryMaterial);
+	return coche.carroceria;
 }
-console.log(assembleCarBody());
+// console.log(assembleCarBody());
 
+//#ESTRUCTURADELCHASIS
+function manufactureBodyChassis(coche, bodyChassisMaterial = "Fibra de Carbono") {
+	console.log(`Fabricando estructura de chasis de ${bodyChassisMaterial}...`);
+	console.log(`(✅)Estructura de chasis de ${bodyChassisMaterial} fabricada con éxito.`);
+    coche.chasis.estructuraDelChasis = bodyChassisMaterial;
+    return coche.chasis.estructuraDelChasis;
+}
