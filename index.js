@@ -297,3 +297,12 @@ function manufactureSteeringWheel(coche, steeringWheelType = "Deportivo", steeri
     return coche.chasis.sistemaDeDireccion;
 }
 // console.log(manufactureSteeringWheel());
+
+//MOTOR
+function manufactureEngine(coche, typeOfEngine = "Gasolina") {
+    console.log(`Fabricando Motor de ${typeOfEngine}...`);
+    console.log(`(✅)Motor de ${typeOfEngine} fabricado con éxito.`);
+    coche.chasis.motor = typeOfEngine;
+    return coche.chasis.motor;
+}
+// console.log(manufactureEngine());
