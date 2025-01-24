@@ -273,9 +273,27 @@ function assembleWheel(wheelRimMaterial, tireSize) {
 
 //#SISTEMADESUSPENSION
 function manufactureBrakesSystem(coche, typeOfBrakes = "ABS") {
-    console.log(`Fabricando Sistema de Frenos ${typeOfBrakes}...`);
-    console.log(`(✅)Sistema de Frenos ${typeOfBrakes} fabricado con éxito.`);
-    coche.chasis.sistemaDeFrenos = typeOfBrakes;
-    return coche.chasis.sistemaDeFrenos;
+	console.log(`Fabricando Sistema de Frenos ${typeOfBrakes}...`);
+	console.log(`(✅)Sistema de Frenos ${typeOfBrakes} fabricado con éxito.`);
+	coche.chasis.sistemaDeFrenos = typeOfBrakes;
+	return coche.chasis.sistemaDeFrenos;
 }
-console.log(manufactureBrakesSystem());
+// console.log(manufactureBrakesSystem());
+
+//#VOLANTE
+function manufactureSteeringWheel(coche, steeringWheelType = "Deportivo", steeringStructure = "Asistida") {
+    console.log(`Fabricando Volante ${steeringWheelType}...`);
+    coche.chasis.sistemaDeDireccion.volante = steeringWheelType;
+    console.log(`(✅)Volante ${steeringWheelType} fabricado con éxito.`);
+    
+    console.log(`Fabricando Estructura de dirección ${steeringStructure}...`);
+    coche.chasis.sistemaDeDireccion.estructuraDeDireccion = steeringStructure;
+    console.log(`(✅)Estructura de Dirección ${steeringStructure} fabricada con éxito.`);
+    
+    console.log(`Ensamblando sistema de dirección con:
+        - Volante: ${steeringWheelType}
+        - Estructura de direccion: ${steeringStructure}
+        `);
+    return coche.chasis.sistemaDeDireccion;
+}
+// console.log(manufactureSteeringWheel());
