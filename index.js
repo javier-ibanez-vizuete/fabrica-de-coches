@@ -109,38 +109,65 @@ function generateItalyLicensePlate(coche = {}, country) {
 		coche.matricula = licensePlate + `(${country})`;
 		return coche.matricula;
 	}
-};
+}
 // console.log(generateItalyLicensePlate());
 
 function generateLicensePlate(coche = {}, country = "spain") {
-    	//EL = {} TENGO QUE RETIRARLO
-    if (!country || country === null || country === "") {
-        coche.matricula = "Sin Asignar";
-        return `Pais incorrecto. Los paises disponibles son: "spain", "portugal", "france", "italy"`;
-    }
+	//EL = {} TENGO QUE RETIRARLO
+	if (!country || country === null || country === "") {
+		coche.matricula = "Sin Asignar";
+		return `Pais incorrecto. Los paises disponibles son: "spain", "portugal", "france", "italy"`;
+	}
 
-    if (country === "spain") {
-        return generateSpanishLicensePlate(coche, country);
-    }
+	if (country === "spain") {
+		return generateSpanishLicensePlate(coche, country);
+	}
 
-    if (country === "portugal") {
-        return generatePortugueseLicensePlate(coche, country);
-    }
+	if (country === "portugal") {
+		return generatePortugueseLicensePlate(coche, country);
+	}
 
-    if (country === "france") {
-        return generateFrenchLicensePlate(coche, country);
-    }
+	if (country === "france") {
+		return generateFrenchLicensePlate(coche, country);
+	}
 
-    if (country === "italy") {
-        return generateItalyLicensePlate(coche, country);
-    }
-    coche.matricula = "Sin Asignar";
-    return `Pais incorrecto. Los paises disponibles son: "spain", "portugal", "france", "italy"`;
-};
+	if (country === "italy") {
+		return generateItalyLicensePlate(coche, country);
+	}
+	coche.matricula = "Sin Asignar";
+	return `Pais incorrecto. Los paises disponibles son: "spain", "portugal", "france", "italy"`;
+}
 // console.log(generateLicensePlate(undefined, "spain"));
 // console.log(generateLicensePlate(undefined, "portugal"));
 // console.log(generateLicensePlate(undefined, "france"));
 // console.log(generateLicensePlate(undefined, "italy"));
 // console.log(generateLicensePlate(undefined, "zarandonga"));
-// console.log(generateLicensePlate(undefined, undefined));
-// console.log(generateLicensePlate(undefined, ""));
+
+// --------- FABRICACION DEL COCHE -----------
+//#MARCODEPUERTA
+function manufactureDoorFrame(doorFrameMaterial = "Titanio") {
+	console.log(`Fabricando Marco de Puerta de ${doorFrameMaterial}...`);
+	console.log(`(✅)Marco de Puerta de ${doorFrameMaterial} fabricado con éxito.`);
+	return { doorFrame: doorFrameMaterial };
+}
+
+//#VENTANA
+function manufactureWindow(windowMaterial = "Cristal Templado") {
+	console.log(`Fabricando Ventana de ${windowMaterial}...`);
+	console.log(`(✅)Ventana de ${windowMaterial} fabricada con éxito.`);
+	return { window: windowMaterial };
+}
+
+//#PUERTA
+function assembleDoor(doorFrameMaterial, windowMaterial) {
+	const doorFrame = manufactureDoorFrame(doorFrameMaterial);
+	const window = manufactureWindow(windowMaterial);
+	console.log(`Ensamblando Puerta con:
+        - Marco de ${Object.values(doorFrame)}
+        - Ventana de ${Object.values(window)}
+        `);
+	return { ...doorFrame, ...window };
+}
+// console.log(assembleDoor("Plastico", "Goma"));
+
+//#ASIENTO
