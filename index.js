@@ -241,9 +241,32 @@ function manufactureBodyChassis(coche, bodyChassisMaterial = "Fibra de Carbono")
 //#SISTEMA DE SUSPENSION
 function manufactureSuspensionSystem(coche, typeOfSuspension = "Neumatica") {
 	console.log(`Fabricando sistema de Suspensión ${typeOfSuspension}...`);
-    console.log(`(✅)Sistema de Suspensión ${typeOfSuspension} fabricado con éxito.`);
-    coche.chasis.sistemaDeSuspension = typeOfSuspension;
-    return coche.chasis.sistemaDeSuspension;
+	console.log(`(✅)Sistema de Suspensión ${typeOfSuspension} fabricado con éxito.`);
+	coche.chasis.sistemaDeSuspension = typeOfSuspension;
+	return coche.chasis.sistemaDeSuspension;
 }
-console.log(manufactureSuspensionSystem());
+// console.log(manufactureSuspensionSystem());
 
+//#LLANTA
+function manufactureWheelRim(wheelRimMaterial = "Titanio") {
+	console.log(`Fabricando LLanta de ${wheelRimMaterial}...`);
+	console.log(`(✅)LLanta de ${wheelRimMaterial} fabricada con éxito.`);
+	return { llanta: wheelRimMaterial };
+}
+// console.log(manufactureWheelRim());
+
+//#NEUMATICO
+function manufactureWheelTire(tireSize = 15) {
+	console.log(`Fabricando neumatico de ${tireSize}"...`);
+	console.log(`(✅)Neumatico de ${tireSize}" fabricado con éxito.`);
+	return { neumatico: tireSize + '"' };
+}
+// console.log(manufactureWheelTire());
+
+//#RUEDA
+function assembleWheel(wheelRimMaterial, tireSize) {
+	const wheelRim = manufactureWheelRim(wheelRimMaterial);
+	const wheelTire = manufactureWheelTire(tireSize);
+	return { ...wheelRim, ...wheelTire };
+}
+// console.log(assembleWheel("Plastico", "17"));
