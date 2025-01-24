@@ -233,6 +233,17 @@ function assembleCarBody(
 function manufactureBodyChassis(coche, bodyChassisMaterial = "Fibra de Carbono") {
 	console.log(`Fabricando estructura de chasis de ${bodyChassisMaterial}...`);
 	console.log(`(✅)Estructura de chasis de ${bodyChassisMaterial} fabricada con éxito.`);
-    coche.chasis.estructuraDelChasis = bodyChassisMaterial;
-    return coche.chasis.estructuraDelChasis;
+	coche.chasis.estructuraDelChasis = bodyChassisMaterial;
+	return coche.chasis.estructuraDelChasis;
 }
+// console.log(manufactureBodyChassis());
+
+//#SISTEMA DE SUSPENSION
+function manufactureSuspensionSystem(coche, typeOfSuspension = "Neumatica") {
+	console.log(`Fabricando sistema de Suspensión ${typeOfSuspension}...`);
+    console.log(`(✅)Sistema de Suspensión ${typeOfSuspension} fabricado con éxito.`);
+    coche.chasis.sistemaDeSuspension = typeOfSuspension;
+    return coche.chasis.sistemaDeSuspension;
+}
+console.log(manufactureSuspensionSystem());
+
