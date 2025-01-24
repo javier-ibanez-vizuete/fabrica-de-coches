@@ -350,4 +350,99 @@ function assembleChassis(
     return coche.chasis;
 }
 
+//#COCHE
+function assembleCar(
+    bodyPanelMaterial,
+	doorsNumber,
+	doorFrameMaterial,
+	windowMaterial,
+	seatsNumber,
+	seatMaterial,
+	upholsteryMaterial,
+	bodyChassisMaterial,
+	typeOfSuspension,
+	numberOfWheels,
+	wheelRimMaterial,
+	tireSize,
+	typeOfBrakes,
+	steeringWheelType,
+	steeringStructure,
+	typeOfEngine,
+	typeOfExhaustSystem,
+	country
+) {
+    const coche = carTemplate();
+
+    assembleCarBody(
+        coche,
+		bodyPanelMaterial,
+		doorsNumber,
+		doorFrameMaterial,
+		windowMaterial,
+		seatsNumber,
+		seatMaterial,
+		upholsteryMaterial
+    );
+
+    assembleChassis(
+        coche,
+		bodyChassisMaterial,
+		typeOfSuspension,
+		numberOfWheels,
+		wheelRimMaterial,
+		tireSize,
+		typeOfBrakes,
+		steeringWheelType,
+		steeringStructure,
+		typeOfEngine,
+		typeOfExhaustSystem
+    );
+
+    generateLicensePlate(coche, country);
+
+    console.log(`Coche Ensamblado:`, coche);
+    return coche;
+}
+
+const coche1 = assembleCar(
+    "Adamantium", //Material del chasis
+	3, //Numero de Puertas
+	"Titanio", // Material del Chasis de las puertas
+	"Plástico", // Material de las Ventanas
+	2, // Numero de Asientos
+	"Piel de Anaconda", // Material de los Asientos
+	"Piel de Coco", // Material de la Tapiceria
+	"Criptonita", //Material de la Estructura del Chasis
+	"Hidráulica", // Tipo de suspension
+	3, // Numero de Ruedas
+	"Cera", // Material de las LLantas
+	6, // Tamaño de los Neumaticos
+	"ABS", // Tipo de sistema de Frenos
+	"Clásico", // Tipo de Volante
+	"Asistida", // Tipo de estructura de Direccion
+	"Gasolina", // Tipo de Motor
+	"Deportivo", // Tipo de Sistema de Escape
+	"italy" // Pais de Matriculación "spain", "france", "portugal", italy"
+);
+const coche2 = assembleCar(
+    "Acero Galvanizado", //Material del chasis de las puertas
+	4, //Numero de Puertas
+	"Fibra De Carbono", // Material del Chasis de las puertas
+	"Cristal Templado", // Material de las Ventanas
+	5, // Numero de Asientos
+	"Piel", // Material de los Asientos
+	"Cuero", // Material de la Tapiceria
+	"Acero Galvanizado", //Material de la Estructura del Chasis
+	"Hidráulica", // Tipo de suspension
+	4, // Numero de Ruedas
+	"Titanio", // Material de las LLantas
+	16, // Tamaño de los Neumaticos
+	"ABS", // Tipo de sistema de Frenos
+	"Deportivo", // Tipo de Volante
+	"Asistida Hidráulica", // Tipo de estructura de Direccion
+	"Gasolina", // Tipo de Motor
+	"Deportivo", // Tipo de Sistema de Escape
+	"spain" // Pais de Matriculación "spain", "france", "portugal", italy"
+);
+console.log(coche2);
 
