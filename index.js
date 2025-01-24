@@ -176,18 +176,19 @@ function manufactureSeat(seatMaterial = "Piel") {
     console.log(`(✅)Asiento de ${seatMaterial} fabricado con éxito.`);
     return {Asiento: seatMaterial};
 }
-const asiento = manufactureSeat();
-console.log(asiento);
+// const asiento = manufactureSeat();
+// console.log(asiento);
 
 
 
 //#TAPICERIA
-// function manufactureUpholstery(coche, upholsteryMaterial = "Piel Sintetica") {
-//     console.log(`Fabricando Tapiceria de ${upholsteryMaterial}...`);
-//     console.log(`Tapiceria de ${upholsteryMaterial} fabricada con éxito.`);
-//     coche.carroceria.tapiceria = upholsteryMaterial;
-//     return coche.carroceria.tapiceria;
-// }
+function manufactureUpholstery(coche = {}, upholsteryMaterial = "Piel Sintetica") {
+    console.log(`Fabricando Tapiceria de ${upholsteryMaterial}...`);
+    console.log(`Tapiceria de ${upholsteryMaterial} fabricada con éxito.`);
+    coche.carroceria.tapiceria = upholsteryMaterial;
+    return coche.carroceria.tapiceria;
+}
+console.log(manufactureUpholstery());
 
 //#ESTRUCTURACARROCERIA
 // function manufactureBodyPanel(coche, bodyPanelMaterial = "Fibra de Carbono")
