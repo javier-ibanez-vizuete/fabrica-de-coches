@@ -192,8 +192,40 @@ function manufactureUpholstery(coche = {}, upholsteryMaterial = "Piel Sintetica"
 //#ESTRUCTURACARROCERIA
 function manufactureBodyPanel(coche = {}, bodyPanelMaterial = "Fibra de Carbono") {
 	//EL = {} TENGO QUE RETIRARLO
-    console.log(`Fabricando Carroceria Exterior de ${bodyPanelMaterial}...`);
-    console.log(`(✅)Carroceria Exterior de ${bodyPanelMaterial} fabricada con éxito.`);
-    coche.carroceria.carroceriaExterior = bodyPanelMaterial;
-    return coche.carroceria.carroceriaExterior;
+	console.log(`Fabricando Carroceria Exterior de ${bodyPanelMaterial}...`);
+	console.log(`(✅)Carroceria Exterior de ${bodyPanelMaterial} fabricada con éxito.`);
+	coche.carroceria.carroceriaExterior = bodyPanelMaterial;
+	return coche.carroceria.carroceriaExterior;
 }
+// console.log(manufactureBodyPanel());
+
+//#CARROCERIA
+function assembleCarBody(
+	coche,
+	bodyPanelMaterial,
+	doorsNumber = 4,
+	doorFrameMaterial,
+	windowMaterial,
+	seatsNumber = 5,
+	seatMaterial,
+	upholsteryMaterial
+) {
+	manufactureBodyPanel(coche, bodyPanelMaterial);
+
+	for (let index = 0; index < doorsNumber; index++) {
+		const door = assembleDoor(doorFrameMaterial, windowMaterial);
+		coche.carroceria.puertas.push(door);
+		console.log(`(✅)Puerta Ensamblada:`, door);
+	}
+
+    for (let index = 0; index < seatsNumber; index++) {
+        const seat = manufactureSeat(seatMaterial);
+        coche.carroceria.asientos.push(seat);
+        console.log(`(✅)Asiento Ensamblado`);
+    }
+
+    manufactureUpholstery(coche, upholsteryMaterial);
+    return coche.carroceria;
+}
+console.log(assembleCarBody());
+
