@@ -148,14 +148,14 @@ function generateLicensePlate(coche = {}, country = "spain") {
 function manufactureDoorFrame(doorFrameMaterial = "Titanio") {
 	console.log(`Fabricando Marco de Puerta de ${doorFrameMaterial}...`);
 	console.log(`(✅)Marco de Puerta de ${doorFrameMaterial} fabricado con éxito.`);
-	return { doorFrame: doorFrameMaterial };
+	return { MarcoDePuerta: doorFrameMaterial };
 }
 
 //#VENTANA
 function manufactureWindow(windowMaterial = "Cristal Templado") {
 	console.log(`Fabricando Ventana de ${windowMaterial}...`);
 	console.log(`(✅)Ventana de ${windowMaterial} fabricada con éxito.`);
-	return { window: windowMaterial };
+	return { Ventana: windowMaterial };
 }
 
 //#PUERTA
@@ -171,3 +171,23 @@ function assembleDoor(doorFrameMaterial, windowMaterial) {
 // console.log(assembleDoor("Plastico", "Goma"));
 
 //#ASIENTO
+function manufactureSeat(seatMaterial = "Piel") {
+    console.log(`Fabricando Asiento de ${seatMaterial}...`);
+    console.log(`(✅)Asiento de ${seatMaterial} fabricado con éxito.`);
+    return {Asiento: seatMaterial};
+}
+const asiento = manufactureSeat();
+console.log(asiento);
+
+
+
+//#TAPICERIA
+// function manufactureUpholstery(coche, upholsteryMaterial = "Piel Sintetica") {
+//     console.log(`Fabricando Tapiceria de ${upholsteryMaterial}...`);
+//     console.log(`Tapiceria de ${upholsteryMaterial} fabricada con éxito.`);
+//     coche.carroceria.tapiceria = upholsteryMaterial;
+//     return coche.carroceria.tapiceria;
+// }
+
+//#ESTRUCTURACARROCERIA
+// function manufactureBodyPanel(coche, bodyPanelMaterial = "Fibra de Carbono")
