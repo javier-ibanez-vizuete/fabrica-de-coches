@@ -306,3 +306,12 @@ function manufactureEngine(coche, typeOfEngine = "Gasolina") {
     return coche.chasis.motor;
 }
 // console.log(manufactureEngine());
+
+//#SISTEMADEESCAPE
+function manufactureExhaustSystem(coche, typeOfExhaustSystem = "4 Salidas") {
+    console.log(`Fabricando Sistema de escape tipo ${typeOfExhaustSystem}...`);
+    console.log(`(✅)Sistema de Escape tipo ${typeOfExhaustSystem} fabricado con éxito.`);
+    coche.chasis.sistemaDeEscape = typeOfExhaustSystem;
+    return coche.chasis.sistemaDeEscape;
+}
+// console.log(manufactureExhaustSystem());
