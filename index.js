@@ -281,37 +281,73 @@ function manufactureBrakesSystem(coche, typeOfBrakes = "ABS") {
 // console.log(manufactureBrakesSystem());
 
 //#VOLANTE
-function manufactureSteeringWheel(coche, steeringWheelType = "Deportivo", steeringStructure = "Asistida") {
-    console.log(`Fabricando Volante ${steeringWheelType}...`);
-    coche.chasis.sistemaDeDireccion.volante = steeringWheelType;
-    console.log(`(✅)Volante ${steeringWheelType} fabricado con éxito.`);
-    
-    console.log(`Fabricando Estructura de dirección ${steeringStructure}...`);
-    coche.chasis.sistemaDeDireccion.estructuraDeDireccion = steeringStructure;
-    console.log(`(✅)Estructura de Dirección ${steeringStructure} fabricada con éxito.`);
-    
-    console.log(`Ensamblando sistema de dirección con:
+function manufactureSteeringWheelSystem(coche, steeringWheelType = "Deportivo", steeringStructure = "Asistida") {
+	console.log(`Fabricando Volante ${steeringWheelType}...`);
+	coche.chasis.sistemaDeDireccion.volante = steeringWheelType;
+	console.log(`(✅)Volante ${steeringWheelType} fabricado con éxito.`);
+
+	console.log(`Fabricando Estructura de dirección ${steeringStructure}...`);
+	coche.chasis.sistemaDeDireccion.estructuraDeDireccion = steeringStructure;
+	console.log(`(✅)Estructura de Dirección ${steeringStructure} fabricada con éxito.`);
+
+	console.log(`Ensamblando sistema de dirección con:
         - Volante: ${steeringWheelType}
         - Estructura de direccion: ${steeringStructure}
         `);
-    return coche.chasis.sistemaDeDireccion;
+	return coche.chasis.sistemaDeDireccion;
 }
 // console.log(manufactureSteeringWheel());
 
 //MOTOR
 function manufactureEngine(coche, typeOfEngine = "Gasolina") {
-    console.log(`Fabricando Motor de ${typeOfEngine}...`);
-    console.log(`(✅)Motor de ${typeOfEngine} fabricado con éxito.`);
-    coche.chasis.motor = typeOfEngine;
-    return coche.chasis.motor;
+	console.log(`Fabricando Motor de ${typeOfEngine}...`);
+	console.log(`(✅)Motor de ${typeOfEngine} fabricado con éxito.`);
+	coche.chasis.motor = typeOfEngine;
+	return coche.chasis.motor;
 }
 // console.log(manufactureEngine());
 
 //#SISTEMADEESCAPE
 function manufactureExhaustSystem(coche, typeOfExhaustSystem = "4 Salidas") {
-    console.log(`Fabricando Sistema de escape tipo ${typeOfExhaustSystem}...`);
-    console.log(`(✅)Sistema de Escape tipo ${typeOfExhaustSystem} fabricado con éxito.`);
-    coche.chasis.sistemaDeEscape = typeOfExhaustSystem;
-    return coche.chasis.sistemaDeEscape;
+	console.log(`Fabricando Sistema de escape tipo ${typeOfExhaustSystem}...`);
+	console.log(`(✅)Sistema de Escape tipo ${typeOfExhaustSystem} fabricado con éxito.`);
+	coche.chasis.sistemaDeEscape = typeOfExhaustSystem;
+	return coche.chasis.sistemaDeEscape;
 }
 // console.log(manufactureExhaustSystem());
+
+//#CHASIS
+function assembleChassis(
+	coche,
+	bodyChassisMaterial,
+	typeOfSuspension,
+	numberOfWheels = 4,
+	wheelRimMaterial,
+	tireSize,
+	typeOfBrakes,
+	steeringWheelType,
+	steeringStructure,
+	typeOfEngine,
+	typeOfExhaustSystem
+) {
+	manufactureBodyChassis(coche, bodyChassisMaterial);
+
+	manufactureSuspensionSystem(coche, typeOfSuspension);
+
+	for (let index = 0; index < numberOfWheels; index++) {
+		const wheel = assembleWheel(wheelRimMaterial, tireSize);
+		coche.chasis.ruedas.push(wheel);
+		console.log(`(✅)Rueda Ensamblada:`, wheel);
+	}
+
+    manufactureBrakesSystem(coche, typeOfBrakes);
+
+    manufactureSteeringWheelSystem(coche, steeringWheelType, steeringStructure);
+
+    manufactureEngine(coche, typeOfEngine);
+
+    manufactureExhaustSystem(coche, typeOfExhaustSystem);
+    return coche.chasis;
+}
+
+
