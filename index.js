@@ -1,6 +1,88 @@
 // FABRICA DE COCHES SICLARO
 console.log(`Bienvenidos a la fabrica de coches`);
+//##PREGUNTA SOBRE LA CARROCERIA
+const askAboutBodyPanel = prompt(`Bienvenido a la fabrica de coches Siclaro Motor.
+	De que Material Quiere que le hagamos la carroceria exterior?
+	Opciones: "Acero", "Aluminio", "Fibra de Carbono", "Plastico reforzado", "Materiales Compuestos", "Magnesio"
+	Material Predeterminado: Fibra de Carbono.
+	`);
 
+let answerBodyPanel;
+if (!askAboutBodyPanel || askAboutBodyPanel === null || askAboutBodyPanel === "" || askAboutBodyPanel === undefined) {
+	answerBodyPanel = undefined;
+}
+if (
+	askAboutBodyPanel === "acero" ||
+	askAboutBodyPanel === "Acero" ||
+	askAboutBodyPanel === "aluminio" ||
+	askAboutBodyPanel === "Aluminio" ||
+	askAboutBodyPanel === "fibra de carbono" ||
+	askAboutBodyPanel === "Fibra de carbono" ||
+	askAboutBodyPanel === "plástico reforzado" ||
+	askAboutBodyPanel === "Plástico reforzado" ||
+	askAboutBodyPanel === "materiales compuestos" ||
+	askAboutBodyPanel === "Materiales Compuestos" ||
+	askAboutBodyPanel === "magnesio" ||
+	askAboutBodyPanel === "Magnesio"
+) {
+	answerBodyPanel = askAboutBodyPanel;
+}
+
+//## PREGUNTA SOBRE EL NUMERO DE PUERTAS
+const askAboutDoorsNumber = prompt(`¿Cuantas Puertas desea en su Vehiculo?
+	- ¿Desea que le hagamos el Vehiculo con 5 Puertas? 
+	- o ¿lo prefiere con 3 puertas? 
+	- Numero de Puertas Predeterminado: 4
+	`);
+
+let answerDoorsNumber;
+if (
+	!askAboutDoorsNumber ||
+	askAboutDoorsNumber === null ||
+	askAboutDoorsNumber === "" ||
+	askAboutDoorsNumber === undefined
+) {
+	answerDoorsNumber = undefined;
+}
+
+if (askAboutDoorsNumber <= 5 && askAboutDoorsNumber >= 3) {
+	answerDoorsNumber = askAboutDoorsNumber;
+}
+
+//##PREGUNTA SOBRE EL CHASIS DE LAS PUERTAS
+const askAboutDoorChassis = prompt(`
+	¿De que material desea el chasis de las puertas?
+	- Acero de alta resistencia.
+	- Aluminio.
+	- Aleaciones de Magnesio.
+	- Materiales compuestos.
+	- Fibra de Carbono.
+	- Plasticos reforzados.
+	Material Predeterminado: Fibra de Carbono
+	`);
+let answerDoorChassis
+	if (!askAboutDoorChassis || askAboutDoorChassis === null || askAboutDoorChassis === "" || askAboutDoorChassis === undefined) {
+		answerDoorChassis = undefined;
+	}
+
+	if (
+		askAboutDoorChassis === "acero de alta resistencia" ||
+		askAboutDoorChassis === "Acero de alta resistencia" ||
+		askAboutDoorChassis === "aluminio" ||
+		askAboutDoorChassis === "Aluminio" ||
+		askAboutDoorChassis === "aleaciones de Magnesio" ||
+		askAboutDoorChassis === "Aleaciones de Magnesio" ||
+		askAboutDoorChassis === "materiales compuestos" ||
+		askAboutDoorChassis === "Materiales compuestos" ||
+		askAboutDoorChassis === "fibra de carbono" ||
+		askAboutDoorChassis === "Fibra de carbono" ||
+		askAboutDoorChassis === "plásticos reforzados" ||
+		askAboutDoorChassis === "Plásticos reforzados"
+	) {
+		answerDoorChassis = askAboutDoorChassis;
+	}
+
+//#PLANTILLACOCHE
 function carTemplate() {
 	return {
 		carroceria: {
@@ -145,7 +227,7 @@ function generateLicensePlate(coche = {}, country = "spain") {
 
 // --------- FABRICACION DEL COCHE -----------
 //#MARCODEPUERTA
-function manufactureDoorFrame(doorFrameMaterial = "Titanio") {
+function manufactureDoorFrame(doorFrameMaterial = "Fibra de Carbono") {
 	console.log(`Fabricando Marco de Puerta de ${doorFrameMaterial}...`);
 	console.log(`(✅)Marco de Puerta de ${doorFrameMaterial} fabricado con éxito.`);
 	return { MarcoDePuerta: doorFrameMaterial };
@@ -340,19 +422,19 @@ function assembleChassis(
 		console.log(`(✅)Rueda Ensamblada:`, wheel);
 	}
 
-    manufactureBrakesSystem(coche, typeOfBrakes);
+	manufactureBrakesSystem(coche, typeOfBrakes);
 
-    manufactureSteeringWheelSystem(coche, steeringWheelType, steeringStructure);
+	manufactureSteeringWheelSystem(coche, steeringWheelType, steeringStructure);
 
-    manufactureEngine(coche, typeOfEngine);
+	manufactureEngine(coche, typeOfEngine);
 
-    manufactureExhaustSystem(coche, typeOfExhaustSystem);
-    return coche.chasis;
+	manufactureExhaustSystem(coche, typeOfExhaustSystem);
+	return coche.chasis;
 }
 
 //#COCHE
 function assembleCar(
-    bodyPanelMaterial,
+	bodyPanelMaterial,
 	doorsNumber,
 	doorFrameMaterial,
 	windowMaterial,
@@ -371,10 +453,10 @@ function assembleCar(
 	typeOfExhaustSystem,
 	country
 ) {
-    const coche = carTemplate();
+	const coche = carTemplate();
 
-    assembleCarBody(
-        coche,
+	assembleCarBody(
+		coche,
 		bodyPanelMaterial,
 		doorsNumber,
 		doorFrameMaterial,
@@ -382,10 +464,10 @@ function assembleCar(
 		seatsNumber,
 		seatMaterial,
 		upholsteryMaterial
-    );
+	);
 
-    assembleChassis(
-        coche,
+	assembleChassis(
+		coche,
 		bodyChassisMaterial,
 		typeOfSuspension,
 		numberOfWheels,
@@ -396,18 +478,18 @@ function assembleCar(
 		steeringStructure,
 		typeOfEngine,
 		typeOfExhaustSystem
-    );
+	);
 
-    generateLicensePlate(coche, country);
+	generateLicensePlate(coche, country);
 
-    console.log(`Coche Ensamblado:`, coche);
-    return coche;
+	console.log(`Coche Ensamblado:`, coche);
+	return coche;
 }
 
 const coche1 = assembleCar(
-    "Adamantium", //Material del chasis
-	3, //Numero de Puertas
-	"Titanio", // Material del Chasis de las puertas
+	answerBodyPanel, //Material del chasis
+	answerDoorsNumber, //Numero de Puertas
+	answerDoorChassis, // Material del Chasis de las puertas
 	"Plástico", // Material de las Ventanas
 	2, // Numero de Asientos
 	"Piel de Anaconda", // Material de los Asientos
@@ -424,25 +506,5 @@ const coche1 = assembleCar(
 	"Deportivo", // Tipo de Sistema de Escape
 	"italy" // Pais de Matriculación "spain", "france", "portugal", italy"
 );
-const coche2 = assembleCar(
-    "Acero Galvanizado", //Material del chasis de las puertas
-	4, //Numero de Puertas
-	"Fibra De Carbono", // Material del Chasis de las puertas
-	"Cristal Templado", // Material de las Ventanas
-	5, // Numero de Asientos
-	"Piel", // Material de los Asientos
-	"Cuero", // Material de la Tapiceria
-	"Acero Galvanizado", //Material de la Estructura del Chasis
-	"Hidráulica", // Tipo de suspension
-	4, // Numero de Ruedas
-	"Titanio", // Material de las LLantas
-	16, // Tamaño de los Neumaticos
-	"ABS", // Tipo de sistema de Frenos
-	"Deportivo", // Tipo de Volante
-	"Asistida Hidráulica", // Tipo de estructura de Direccion
-	"Gasolina", // Tipo de Motor
-	"Deportivo", // Tipo de Sistema de Escape
-	"spain" // Pais de Matriculación "spain", "france", "portugal", italy"
-);
-console.log(coche2);
 
+console.log(coche1);
