@@ -150,6 +150,7 @@ const askAboutSeatMaterial = prompt(`
 	- Tela
 	- Alcántara
 	- Malla Transpirable
+	Material Predeterminado: Cuero Sintético
 	`);
 
 let answerSeatMaterial;
@@ -175,6 +176,131 @@ if (
 	askAboutSeatMaterial === "Malla Transpirable"
 ) {
 	answerSeatMaterial = askAboutSeatMaterial;
+}
+
+//##PREGUNTA SOBRE LA TAPICERIA
+const askAboutUpholstery = prompt(`
+	¿Material de la Tapiceria?
+	- Cuero Natural
+	- Cuero Sintético
+	- Tela
+	- Alcántara
+	- Plástico
+	Material Predeterminado: Cuero Natural
+	`);
+
+let answerUpholsteryMaterial;
+if (
+	!askAboutUpholstery ||
+	askAboutUpholstery === "" ||
+	askAboutUpholstery === null ||
+	askAboutUpholstery === undefined
+) {
+	answerUpholsteryMaterial = undefined;
+}
+
+if (
+	askAboutUpholstery === "cuero natural" ||
+	askAboutUpholstery === "Cuero Natural" ||
+	askAboutUpholstery === "cuero sintético" ||
+	askAboutUpholstery === "Cuero Sintético" ||
+	askAboutUpholstery === "tela" ||
+	askAboutUpholstery === "Tela" ||
+	askAboutUpholstery === "alcántara" ||
+	askAboutUpholstery === "Alcántara" ||
+	askAboutUpholstery === "plástico" ||
+	askAboutUpholstery === "Plástico"
+) {
+	answerUpholsteryMaterial = askAboutUpholstery;
+}
+
+//##PREGUNTA ESTRUCTURA CHASSIS
+const askAboutBodyChassis = prompt(`
+	¿De que Material quieres la estructura de tu chassis?
+	- Acero
+	- Aluminio
+	- Aleación de Magnesio
+	- Fibra de Carbono
+	- FRP (Plastico Reforzado con Fibra de Vidrio)
+	Material Predeterminado: Fibra de Carbono
+	`);
+
+let answerBodyChassis;
+if (
+	!askAboutBodyChassis ||
+	askAboutBodyChassis === "" ||
+	askAboutBodyChassis === null ||
+	askAboutBodyChassis === undefined
+) {
+	answerBodyChassis = undefined;
+}
+
+if (
+	askAboutBodyChassis === "acero" ||
+	askAboutBodyChassis === "Acero" ||
+	askAboutBodyChassis === "aluminio" ||
+	askAboutBodyChassis === "Aluminio" ||
+	askAboutBodyChassis === "aleación de magnesio" ||
+	askAboutBodyChassis === "Aleación de Magnesio" ||
+	askAboutBodyChassis === "fibra de carbono" ||
+	askAboutBodyChassis === "Fibra de Carbono" ||
+	askAboutBodyChassis === "frp" ||
+	askAboutBodyChassis === "FRP"
+) {
+	answerBodyChassis = askAboutBodyChassis;
+}
+
+//##PREGUNTA SOBRE SISTEMA DE SUSPENSIÓN
+const askAboutSuspensionSystem = prompt(`
+	¿Que tipo de suspension deseas instalar?
+	- Independiente
+	- Dependiente
+	- Hidráulica
+	- Hidroneumática
+	- Electrónica
+	Suspension predeterminada: Hidráulica
+	`);
+
+let answerSuspension;
+if (
+	!askAboutSuspensionSystem ||
+	askAboutSuspensionSystem === "" ||
+	askAboutSuspensionSystem === null ||
+	askAboutSuspensionSystem === undefined
+) {
+	answerSuspension = undefined;
+}
+
+if (
+	askAboutSuspensionSystem === "independiente" ||
+	askAboutSuspensionSystem === "Independiente" ||
+	askAboutSuspensionSystem === "dependiente" ||
+	askAboutSuspensionSystem === "Dependiente" ||
+	askAboutSuspensionSystem === "hidráulica" ||
+	askAboutSuspensionSystem === "Hidráulica" ||
+	askAboutSuspensionSystem === "hidroneumática" ||
+	askAboutSuspensionSystem === "Hidroneumática" ||
+	askAboutSuspensionSystem === "electrónica" ||
+	askAboutSuspensionSystem === "Electrónica"
+) {
+	answerSuspension = askAboutSuspensionSystem;
+}
+
+//##PREGUNTA SOBRE NUMERO DE RUEDAS
+const askAboutWheelsNumber = prompt(`
+		¿Cuantas ruedas quieres Instalar?
+		- 4
+		- 5 (4 Instaladas + 1 de repuesto)
+		Ruedas Instaladas predeterminada: 4
+		`);
+
+let answerwheelsnumber;
+if (!askAboutWheelsNumber || askAboutWheelsNumber < 4 || askAboutWheelsNumber > 5) {
+	answerwheelsnumber = undefined;
+}
+
+if (askAboutWheelsNumber >= 4 && askAboutWheelsNumber <= 5) {
+	answerwheelsnumber = Math.floor(askAboutWheelsNumber);
 }
 
 //#PLANTILLACOCHE
@@ -218,8 +344,7 @@ function generateRandomNumberInRange(min = 0, max = 9999) {
 
 const generatedLicensePlateBox = new Set();
 
-function generateSpanishLicensePlate(coche = {}, country) {
-	//EL = {} TENGO QUE RETIRARLO
+function generateSpanishLicensePlate(coche, country) {
 	const licensePlateNumbers = generateRandomNumberInRange(0, 9999);
 	const licensePlateLetters = generateRandomLetter() + generateRandomLetter() + generateRandomLetter();
 	const licensePlate = `${licensePlateNumbers} ${licensePlateLetters}`;
@@ -235,8 +360,7 @@ function generateSpanishLicensePlate(coche = {}, country) {
 }
 // console.log(generateSpanishLicensePlate());
 
-function generatePortugueseLicensePlate(coche = {}, country) {
-	//EL = {} TENGO QUE RETIRARLO
+function generatePortugueseLicensePlate(coche, country) {
 	const licensePlateNumbers = generateRandomNumberInRange(0, 99);
 	const leftLicensePlateLetters = generateRandomLetter() + generateRandomLetter();
 	const rightLicensePlateLetters = generateRandomLetter() + generateRandomLetter();
@@ -253,8 +377,7 @@ function generatePortugueseLicensePlate(coche = {}, country) {
 }
 // console.log(generatePortugueseLicensePlate());
 
-function generateFrenchLicensePlate(coche = {}, country) {
-	//EL = {} TENGO QUE RETIRARLO
+function generateFrenchLicensePlate(coche, country) {
 	const licensePlateNumbers = generateRandomNumberInRange(0, 999);
 	const leftLicensePlateLetters = generateRandomLetter() + generateRandomLetter();
 	const rightLicensePlateLetters = generateRandomLetter() + generateRandomLetter();
@@ -271,8 +394,7 @@ function generateFrenchLicensePlate(coche = {}, country) {
 }
 // console.log(generateFrenchLicensePlate());
 
-function generateItalyLicensePlate(coche = {}, country) {
-	//EL = {} TENGO QUE RETIRARLO
+function generateItalyLicensePlate(coche, country) {
 	const licensePlateNumbers = generateRandomNumberInRange(0, 999);
 	const leftLicensePlateLetters = generateRandomLetter() + generateRandomLetter();
 	const rightLicensePlateLetters = generateRandomLetter() + generateRandomLetter();
@@ -289,8 +411,7 @@ function generateItalyLicensePlate(coche = {}, country) {
 }
 // console.log(generateItalyLicensePlate());
 
-function generateLicensePlate(coche = {}, country = "spain") {
-	//EL = {} TENGO QUE RETIRARLO
+function generateLicensePlate(coche, country = "spain") {
 	if (!country || country === null || country === "") {
 		coche.matricula = "Sin Asignar";
 		return `Pais incorrecto. Los paises disponibles son: "spain", "portugal", "france", "italy"`;
@@ -348,7 +469,7 @@ function assembleDoor(doorFrameMaterial, windowMaterial) {
 // console.log(assembleDoor("Plastico", "Goma"));
 
 //#ASIENTO
-function manufactureSeat(seatMaterial = "Piel") {
+function manufactureSeat(seatMaterial = "Cuero Sintético") {
 	console.log(`Fabricando Asiento de ${seatMaterial}...`);
 	console.log(`(✅)Asiento de ${seatMaterial} fabricado con éxito.`);
 	return { Asiento: seatMaterial };
@@ -357,8 +478,7 @@ function manufactureSeat(seatMaterial = "Piel") {
 // console.log(asiento);
 
 //#TAPICERIA
-function manufactureUpholstery(coche = {}, upholsteryMaterial = "Piel Sintetica") {
-	//EL = {} TENGO QUE RETIRARLO
+function manufactureUpholstery(coche, upholsteryMaterial = "Cuero Natural") {
 	console.log(`Fabricando Tapiceria de ${upholsteryMaterial}...`);
 	console.log(`(✅)Tapiceria de ${upholsteryMaterial} fabricada con éxito.`);
 	coche.carroceria.tapiceria = upholsteryMaterial;
@@ -367,8 +487,7 @@ function manufactureUpholstery(coche = {}, upholsteryMaterial = "Piel Sintetica"
 // console.log(manufactureUpholstery());
 
 //#ESTRUCTURACARROCERIA
-function manufactureBodyPanel(coche = {}, bodyPanelMaterial = "Fibra de Carbono") {
-	//EL = {} TENGO QUE RETIRARLO
+function manufactureBodyPanel(coche, bodyPanelMaterial = "Fibra de Carbono") {
 	console.log(`Fabricando Carroceria Exterior de ${bodyPanelMaterial}...`);
 	console.log(`(✅)Carroceria Exterior de ${bodyPanelMaterial} fabricada con éxito.`);
 	coche.carroceria.carroceriaExterior = bodyPanelMaterial;
@@ -416,7 +535,7 @@ function manufactureBodyChassis(coche, bodyChassisMaterial = "Fibra de Carbono")
 // console.log(manufactureBodyChassis());
 
 //#SISTEMA DE SUSPENSION
-function manufactureSuspensionSystem(coche, typeOfSuspension = "Neumatica") {
+function manufactureSuspensionSystem(coche, typeOfSuspension = "Hidráulica") {
 	console.log(`Fabricando sistema de Suspensión ${typeOfSuspension}...`);
 	console.log(`(✅)Sistema de Suspensión ${typeOfSuspension} fabricado con éxito.`);
 	coche.chasis.sistemaDeSuspension = typeOfSuspension;
@@ -588,10 +707,10 @@ const coche1 = assembleCar(
 	answerWindow, // Material de las Ventanas
 	answerSeatNumber, // Numero de Asientos
 	answerSeatMaterial, // Material de los Asientos
-	"Piel de Coco", // Material de la Tapiceria
-	"Criptonita", //Material de la Estructura del Chasis
-	"Hidráulica", // Tipo de suspension
-	3, // Numero de Ruedas
+	answerUpholsteryMaterial, // Material de la Tapiceria
+	answerBodyChassis, //Material de la Estructura del Chasis
+	answerSuspension, // Tipo de suspension
+	answerwheelsnumber, // Numero de Ruedas
 	"Cera", // Material de las LLantas
 	6, // Tamaño de los Neumaticos
 	"ABS", // Tipo de sistema de Frenos
