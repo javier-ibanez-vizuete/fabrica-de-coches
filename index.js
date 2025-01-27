@@ -1,11 +1,16 @@
 // FABRICA DE COCHES SICLARO
 console.log(`Bienvenidos a la fabrica de coches`);
 //##PREGUNTA SOBRE LA CARROCERIA
-const askAboutBodyPanel = prompt(`Bienvenido a la fabrica de coches Siclaro Motor.
+const askAboutBodyPanel = prompt(`
+	Bienvenido a la fabrica de coches Siclaro Motor.
 	De que Material Quiere que le hagamos la carroceria exterior?
-	Opciones: "Acero", "Aluminio", "Fibra de Carbono", "Plastico reforzado", "Materiales Compuestos", "Magnesio"
-	Material Predeterminado: Fibra de Carbono.
-	`);
+	- Acero
+	- Aluminio
+	- Fibra de Carbono
+	- Plastico reforzado
+	- Materiales Compuestos
+	- Magnesio
+	Material Predeterminado: Fibra de Carbono.`);
 
 let answerBodyPanel;
 if (!askAboutBodyPanel || askAboutBodyPanel === null || askAboutBodyPanel === "" || askAboutBodyPanel === undefined) {
@@ -29,10 +34,11 @@ if (
 }
 
 //## PREGUNTA SOBRE EL NUMERO DE PUERTAS
-const askAboutDoorsNumber = prompt(`¿Cuantas Puertas desea en su Vehiculo?
+const askAboutDoorsNumber = prompt(`
+	¿Cuantas Puertas desea en su Vehiculo?
 	- ¿Desea que le hagamos el Vehiculo con 5 Puertas? 
 	- o ¿lo prefiere con 3 puertas? 
-	- Numero de Puertas Predeterminado: 4
+	Numero de Puertas Predeterminado: 4
 	`);
 
 let answerDoorsNumber;
@@ -60,27 +66,116 @@ const askAboutDoorChassis = prompt(`
 	- Plasticos reforzados.
 	Material Predeterminado: Fibra de Carbono
 	`);
-let answerDoorChassis
-	if (!askAboutDoorChassis || askAboutDoorChassis === null || askAboutDoorChassis === "" || askAboutDoorChassis === undefined) {
-		answerDoorChassis = undefined;
-	}
+let answerDoorChassis;
+if (
+	!askAboutDoorChassis ||
+	askAboutDoorChassis === null ||
+	askAboutDoorChassis === "" ||
+	askAboutDoorChassis === undefined
+) {
+	answerDoorChassis = undefined;
+}
 
-	if (
-		askAboutDoorChassis === "acero de alta resistencia" ||
-		askAboutDoorChassis === "Acero de alta resistencia" ||
-		askAboutDoorChassis === "aluminio" ||
-		askAboutDoorChassis === "Aluminio" ||
-		askAboutDoorChassis === "aleaciones de Magnesio" ||
-		askAboutDoorChassis === "Aleaciones de Magnesio" ||
-		askAboutDoorChassis === "materiales compuestos" ||
-		askAboutDoorChassis === "Materiales compuestos" ||
-		askAboutDoorChassis === "fibra de carbono" ||
-		askAboutDoorChassis === "Fibra de carbono" ||
-		askAboutDoorChassis === "plásticos reforzados" ||
-		askAboutDoorChassis === "Plásticos reforzados"
-	) {
-		answerDoorChassis = askAboutDoorChassis;
-	}
+if (
+	askAboutDoorChassis === "acero de alta resistencia" ||
+	askAboutDoorChassis === "Acero de alta resistencia" ||
+	askAboutDoorChassis === "aluminio" ||
+	askAboutDoorChassis === "Aluminio" ||
+	askAboutDoorChassis === "aleaciones de Magnesio" ||
+	askAboutDoorChassis === "Aleaciones de Magnesio" ||
+	askAboutDoorChassis === "materiales compuestos" ||
+	askAboutDoorChassis === "Materiales compuestos" ||
+	askAboutDoorChassis === "fibra de carbono" ||
+	askAboutDoorChassis === "Fibra de carbono" ||
+	askAboutDoorChassis === "plásticos reforzados" ||
+	askAboutDoorChassis === "Plásticos reforzados"
+) {
+	answerDoorChassis = askAboutDoorChassis;
+}
+
+//##PREGUNTAS SOBRE LAS VENTANAS
+const askAboutWindow = prompt(`
+		¿De que Material quiere las ventanas?
+		- Cristal Templado
+		- Cristal Laminado
+		- Cristal Electrocrómico.
+		Material Predeterminado: Cristal Templado.
+		`);
+
+let answerWindow;
+if (!askAboutWindow || askAboutWindow === "" || askAboutWindow === null || askAboutWindow === undefined) {
+	answerWindow = undefined;
+}
+
+if (
+	askAboutWindow === "cristal templado" ||
+	askAboutWindow === "Cristal Templado" ||
+	askAboutWindow === "cristal laminado" ||
+	askAboutWindow === "Cristal Laminado" ||
+	askAboutWindow === "cristal electrocrómico" ||
+	askAboutWindow === "Cristal Electrocrómico"
+) {
+	answerWindow = askAboutWindow;
+}
+
+//##PREGUNTA NUMERO ASIENTOS
+const askAboutSeatsNumber = prompt(`
+	¿Cuantos asientos quieres instalar en el coche?
+	- 2
+	- 4
+	- 5
+	Numero de asientos predeterminado: 4`);
+
+let answerSeatNumber;
+if (
+	!askAboutSeatsNumber ||
+	askAboutSeatsNumber > 5 ||
+	askAboutSeatsNumber < 2 ||
+	askAboutSeatsNumber === null ||
+	askAboutSeatsNumber === "" ||
+	askAboutSeatsNumber === undefined
+) {
+	answerSeatNumber = undefined;
+}
+
+if (askAboutSeatsNumber >= 2 && askAboutSeatsNumber <= 5) {
+	answerSeatNumber = Math.floor(askAboutSeatsNumber);
+}
+
+//##PREGUNTA MATERIAL ASIENTOS
+const askAboutSeatMaterial = prompt(`
+	¿De que material Quieres los asientos?
+	- Cuero
+	- Cuero Sintético
+	- Tela
+	- Alcántara
+	- Malla Transpirable
+	`);
+
+let answerSeatMaterial;
+if (
+	!askAboutSeatMaterial ||
+	askAboutSeatMaterial === "" ||
+	askAboutSeatMaterial === null ||
+	askAboutSeatMaterial === undefined
+) {
+	answerSeatMaterial = undefined;
+}
+
+if (
+	askAboutSeatMaterial === "cuero" ||
+	askAboutSeatMaterial === "Cuero" ||
+	askAboutSeatMaterial === "cuero sintético" ||
+	askAboutSeatMaterial === "Cuero Sintético" ||
+	askAboutSeatMaterial === "tela" ||
+	askAboutSeatMaterial === "Tela" ||
+	askAboutSeatMaterial === "alcántara" ||
+	askAboutSeatMaterial === "Alcántara" ||
+	askAboutSeatMaterial === "malla transpirable" ||
+	askAboutSeatMaterial === "Malla Transpirable"
+) {
+	answerSeatMaterial = askAboutSeatMaterial;
+}
 
 //#PLANTILLACOCHE
 function carTemplate() {
@@ -288,7 +383,7 @@ function assembleCarBody(
 	doorsNumber = 4,
 	doorFrameMaterial,
 	windowMaterial,
-	seatsNumber = 5,
+	seatsNumber = 4,
 	seatMaterial,
 	upholsteryMaterial
 ) {
@@ -490,9 +585,9 @@ const coche1 = assembleCar(
 	answerBodyPanel, //Material del chasis
 	answerDoorsNumber, //Numero de Puertas
 	answerDoorChassis, // Material del Chasis de las puertas
-	"Plástico", // Material de las Ventanas
-	2, // Numero de Asientos
-	"Piel de Anaconda", // Material de los Asientos
+	answerWindow, // Material de las Ventanas
+	answerSeatNumber, // Numero de Asientos
+	answerSeatMaterial, // Material de los Asientos
 	"Piel de Coco", // Material de la Tapiceria
 	"Criptonita", //Material de la Estructura del Chasis
 	"Hidráulica", // Tipo de suspension
