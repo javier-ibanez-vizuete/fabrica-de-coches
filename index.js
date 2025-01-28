@@ -294,15 +294,276 @@ const askAboutWheelsNumber = prompt(`
 		Ruedas Instaladas predeterminada: 4
 		`);
 
-let answerwheelsnumber;
+let answerWheelsNumber;
 if (!askAboutWheelsNumber || askAboutWheelsNumber < 4 || askAboutWheelsNumber > 5) {
-	answerwheelsnumber = undefined;
+	answerWheelsNumber = undefined;
 }
 
 if (askAboutWheelsNumber >= 4 && askAboutWheelsNumber <= 5) {
-	answerwheelsnumber = Math.floor(askAboutWheelsNumber);
+	answerWheelsNumber = Math.floor(askAboutWheelsNumber);
 }
 
+//##PREGUNTA SOBRE MATERIAL DE LAS LLANTAS
+const askAboutWheelRimMaterial = prompt(`
+	¿Material para las LLantas?
+	- Acero
+	- Aleación de Aluminio
+	- Aleación de Magnesio
+	- Fibra de Carbono
+	- Plasticos reforzados
+	- Acero Cromado
+	Material Predeterminado: Fibra de Carbono
+	`);
+
+let answerWheelRimMaterial;
+if (
+	!askAboutWheelRimMaterial ||
+	askAboutWheelRimMaterial === "" ||
+	askAboutWheelRimMaterial === null ||
+	askAboutWheelRimMaterial === undefined
+) {
+	answerWheelRimMaterial = undefined;
+}
+
+if (
+	askAboutWheelRimMaterial === "acero" ||
+	askAboutWheelRimMaterial === "Acero" ||
+	askAboutWheelRimMaterial === "aleación de aluminio" ||
+	askAboutWheelRimMaterial === "Aleación de Aluminio" ||
+	askAboutWheelRimMaterial === "aleación de magnesio" ||
+	askAboutWheelRimMaterial === "Aleación de Magnesio" ||
+	askAboutWheelRimMaterial === "fibra de carbono" ||
+	askAboutWheelRimMaterial === "Fibra de Carbono" ||
+	askAboutWheelRimMaterial === "plásticos reforzados" ||
+	askAboutWheelRimMaterial === "Plásticos reforzados" ||
+	askAboutWheelRimMaterial === "acero cromado" ||
+	askAboutWheelRimMaterial === "Acero Cromado"
+) {
+	answerWheelRimMaterial = askAboutWheelRimMaterial;
+}
+
+//##PREGUNTA TAMAÑO NEUMATICO
+const askAboutWheelTireSize = prompt(`
+	¿Que tamaño de neumaticos quieres?
+	- R15C
+	- R16
+	- R17
+	- R20
+	Tamaño de Neumáticos predeterminado: R16
+	`);
+
+let answerWheelTireSize;
+if (
+	!askAboutWheelTireSize ||
+	askAboutWheelTireSize === "" ||
+	askAboutWheelTireSize === null ||
+	askAboutWheelTireSize === undefined
+) {
+	answerWheelTireSize = undefined;
+}
+
+if (
+	askAboutWheelTireSize === "R15C" ||
+	askAboutWheelTireSize === "R16" ||
+	askAboutWheelTireSize === "R17" ||
+	askAboutWheelTireSize === "R20"
+) {
+	answerWheelTireSize = askAboutWheelTireSize;
+}
+
+//##PREGUNTA SOBRE SISTEMA DE FRENO
+const askAboutBrakeSystem = prompt(`
+		¿Que sistema de frenos quieres que instalemos?
+		- Disco
+		- Tambor
+		- Hidráulico
+		- de Mano
+		- ABS
+		`);
+
+let answerBrakeSystem;
+if (
+	!askAboutBrakeSystem ||
+	askAboutBrakeSystem === "" ||
+	askAboutBrakeSystem === null ||
+	askAboutBrakeSystem === undefined
+) {
+	answerBrakeSystem = undefined;
+}
+
+if (
+	askAboutBrakeSystem === "disco" ||
+	askAboutBrakeSystem === "Disco" ||
+	askAboutBrakeSystem === "tambor" ||
+	askAboutBrakeSystem === "Tambor" ||
+	askAboutBrakeSystem === "hidráulico" ||
+	askAboutBrakeSystem === "Hidráulico" ||
+	askAboutBrakeSystem === "de mano" ||
+	askAboutBrakeSystem === "de Mano" ||
+	askAboutBrakeSystem === "ABS"
+) {
+	answerBrakeSystem = askAboutBrakeSystem;
+}
+
+//##PREGUNTAS SOBRE EL VOLANTE
+const askAboutSteeringWheelType = prompt(`
+	¿Que tipo de Volante quiere instalar al Coche?
+	- Estandar
+	- Deportivo
+	- Multifuncional
+	Volante instalado predeterminado: Deportivo
+	`);
+
+let answerSteeringWheelType;
+if (
+	!askAboutSteeringWheelType ||
+	askAboutSteeringWheelType === "" ||
+	askAboutSteeringWheelType === null ||
+	askAboutSteeringWheelType === undefined
+) {
+	answerSteeringWheelType = undefined;
+}
+
+if (
+	askAboutSteeringWheelType === "estandar" ||
+	askAboutSteeringWheelType === "Estandar" ||
+	askAboutSteeringWheelType === "deportivo" ||
+	askAboutSteeringWheelType === "Deportivo" ||
+	askAboutSteeringWheelType === "multifuncional" ||
+	askAboutSteeringWheelType === "Multifuncional"
+) {
+	answerSteeringWheelType = askAboutSteeringWheelType;
+}
+
+//##PREGUNTAS SOBRE LA ESTRUCTURA DE DIRECCION
+const askAboutSteeringWheelStructure = prompt(`
+	¿Que tipo de sistema de direccion quieres instalar?
+	- Mecánica
+	- Asistida Hidráulica
+	- Asistida Electrohidráulica
+	- Asistida Electrica
+	Tipo de Direccion Predeterminada: Asistida Eléctrica
+	`);
+
+let answerSteeringWheelStructure;
+if (
+	!askAboutSteeringWheelStructure ||
+	askAboutSteeringWheelStructure === "" ||
+	askAboutSteeringWheelStructure === null ||
+	askAboutSteeringWheelStructure === undefined
+) {
+	answerSteeringWheelStructure = undefined;
+}
+
+if (
+	askAboutSteeringWheelStructure === "mecánica" ||
+	askAboutSteeringWheelStructure === "Mecánica" ||
+	askAboutSteeringWheelStructure === "asistida hidráulica" ||
+	askAboutSteeringWheelStructure === "Asistida Hidráulica" ||
+	askAboutSteeringWheelStructure === "asistida electrohidráulica" ||
+	askAboutSteeringWheelStructure === "Asistida Electrohidráulica" ||
+	askAboutSteeringWheelStructure === "asistida eléctrica" ||
+	askAboutSteeringWheelStructure === "Asistida Eléctrica"
+) {
+	answerSteeringWheelStructure = askAboutSteeringWheelStructure;
+}
+
+//##PREGUNTAS SOBRE EL TIPO DE MOTOR
+const askAboutMotorType = prompt(`
+	¿Que tipo de motor quieres instalar en el coche?
+	- Gasolina
+	- Diésel
+	- GLP
+	- Eléctrico
+	- Hidrógeno
+	Tipo de Motor Predeterminado: Hidrógeno
+	`);
+
+let answerMotorType;
+if (!askAboutMotorType || askAboutMotorType === "" || askAboutMotorType === null || askAboutMotorType === undefined) {
+	answerMotorType = undefined;
+}
+
+if (
+	askAboutMotorType === "gasolina" ||
+	askAboutMotorType === "Gasolina" ||
+	askAboutMotorType === "diésel" ||
+	askAboutMotorType === "Diésel" ||
+	askAboutMotorType === "glp" ||
+	askAboutMotorType === "GLP" ||
+	askAboutMotorType === "eléctrico" ||
+	askAboutMotorType === "Eléctrico" ||
+	askAboutMotorType === "hidrógeno" ||
+	askAboutMotorType === "Hidrógeno"
+) {
+	answerMotorType = askAboutMotorType;
+}
+
+//##PREGUNTAS SOBRE SISTEMA DE ESCAPE
+const askAboutExhaustSystem = prompt(`
+	¿Que tipo de sistema de escape quieres instalar en el coche?
+	- Simple
+	- Doble
+	- De alto flujo
+	- Con catalizador
+	Escape predeterminado: Doble
+	`);
+
+let answerExhaustSystem;
+if (
+	!askAboutExhaustSystem ||
+	askAboutExhaustSystem === "" ||
+	askAboutExhaustSystem === null ||
+	askAboutExhaustSystem === undefined
+) {
+	answerExhaustSystem = undefined;
+}
+
+if (
+	askAboutExhaustSystem === "simple" ||
+	askAboutExhaustSystem === "Simple" ||
+	askAboutExhaustSystem === "doble" ||
+	askAboutExhaustSystem === "Doble" ||
+	askAboutExhaustSystem === "de alto flujo" ||
+	askAboutExhaustSystem === "De alto flujo" ||
+	askAboutExhaustSystem === "con catalizador" ||
+	askAboutExhaustSystem === "Con catalizador"
+) {
+	answerExhaustSystem = askAboutExhaustSystem;
+}
+
+//##PREGUNTAS SOBRE EL PAIS DE MATRICULACIÓN
+const askAboutLicensePlate = prompt(`
+	¿Para que pais quiere matricular el Coche?
+	- spain
+	- portugal
+	- france
+	- italy
+	Matriculacion predeterminada: spain
+	`);
+
+let answerlicensePlate;
+if (
+	!askAboutLicensePlate ||
+	askAboutLicensePlate === "" ||
+	askAboutLicensePlate === null ||
+	askAboutLicensePlate === undefined
+) {
+	answerlicensePlate = undefined;
+}
+
+if (
+	askAboutLicensePlate === "spain" ||
+	askAboutLicensePlate === "Spain" ||
+	askAboutLicensePlate === "portugal" ||
+	askAboutLicensePlate === "Portugal" ||
+	askAboutLicensePlate === "france" ||
+	askAboutLicensePlate === "France" ||
+	askAboutLicensePlate === "italy" ||
+	askAboutLicensePlate === "Italy"
+) {
+	answerlicensePlate = askAboutLicensePlate.toLowerCase();
+}
 //#PLANTILLACOCHE
 function carTemplate() {
 	return {
@@ -544,7 +805,7 @@ function manufactureSuspensionSystem(coche, typeOfSuspension = "Hidráulica") {
 // console.log(manufactureSuspensionSystem());
 
 //#LLANTA
-function manufactureWheelRim(wheelRimMaterial = "Titanio") {
+function manufactureWheelRim(wheelRimMaterial = "Fibra de Carbono") {
 	console.log(`Fabricando LLanta de ${wheelRimMaterial}...`);
 	console.log(`(✅)LLanta de ${wheelRimMaterial} fabricada con éxito.`);
 	return { llanta: wheelRimMaterial };
@@ -552,10 +813,10 @@ function manufactureWheelRim(wheelRimMaterial = "Titanio") {
 // console.log(manufactureWheelRim());
 
 //#NEUMATICO
-function manufactureWheelTire(tireSize = 15) {
-	console.log(`Fabricando neumatico de ${tireSize}"...`);
-	console.log(`(✅)Neumatico de ${tireSize}" fabricado con éxito.`);
-	return { neumatico: tireSize + '"' };
+function manufactureWheelTire(tireSize = "R16") {
+	console.log(`Fabricando neumatico ${tireSize}...`);
+	console.log(`(✅)Neumatico ${tireSize} fabricado con éxito.`);
+	return { neumatico: tireSize };
 }
 // console.log(manufactureWheelTire());
 
@@ -576,8 +837,12 @@ function manufactureBrakesSystem(coche, typeOfBrakes = "ABS") {
 }
 // console.log(manufactureBrakesSystem());
 
-//#VOLANTE
-function manufactureSteeringWheelSystem(coche, steeringWheelType = "Deportivo", steeringStructure = "Asistida") {
+//#SISTEMA DE DIRECCION
+function manufactureSteeringWheelSystem(
+	coche,
+	steeringWheelType = "Deportivo",
+	steeringStructure = "Asistida Eléctrica"
+) {
 	console.log(`Fabricando Volante ${steeringWheelType}...`);
 	coche.chasis.sistemaDeDireccion.volante = steeringWheelType;
 	console.log(`(✅)Volante ${steeringWheelType} fabricado con éxito.`);
@@ -595,7 +860,7 @@ function manufactureSteeringWheelSystem(coche, steeringWheelType = "Deportivo", 
 // console.log(manufactureSteeringWheel());
 
 //MOTOR
-function manufactureEngine(coche, typeOfEngine = "Gasolina") {
+function manufactureEngine(coche, typeOfEngine = "Hidrógeno") {
 	console.log(`Fabricando Motor de ${typeOfEngine}...`);
 	console.log(`(✅)Motor de ${typeOfEngine} fabricado con éxito.`);
 	coche.chasis.motor = typeOfEngine;
@@ -604,7 +869,7 @@ function manufactureEngine(coche, typeOfEngine = "Gasolina") {
 // console.log(manufactureEngine());
 
 //#SISTEMADEESCAPE
-function manufactureExhaustSystem(coche, typeOfExhaustSystem = "4 Salidas") {
+function manufactureExhaustSystem(coche, typeOfExhaustSystem = "Doble") {
 	console.log(`Fabricando Sistema de escape tipo ${typeOfExhaustSystem}...`);
 	console.log(`(✅)Sistema de Escape tipo ${typeOfExhaustSystem} fabricado con éxito.`);
 	coche.chasis.sistemaDeEscape = typeOfExhaustSystem;
@@ -710,15 +975,15 @@ const coche1 = assembleCar(
 	answerUpholsteryMaterial, // Material de la Tapiceria
 	answerBodyChassis, //Material de la Estructura del Chasis
 	answerSuspension, // Tipo de suspension
-	answerwheelsnumber, // Numero de Ruedas
-	"Cera", // Material de las LLantas
-	6, // Tamaño de los Neumaticos
-	"ABS", // Tipo de sistema de Frenos
-	"Clásico", // Tipo de Volante
-	"Asistida", // Tipo de estructura de Direccion
-	"Gasolina", // Tipo de Motor
-	"Deportivo", // Tipo de Sistema de Escape
-	"italy" // Pais de Matriculación "spain", "france", "portugal", italy"
+	answerWheelsNumber, // Numero de Ruedas
+	answerWheelRimMaterial, // Material de las LLantas
+	answerWheelTireSize, // Tamaño de los Neumaticos
+	answerBrakeSystem, // Tipo de sistema de Frenos
+	answerSteeringWheelType, // Tipo de Volante
+	answerSteeringWheelStructure, // Tipo de estructura de Direccion
+	answerMotorType, // Tipo de Motor
+	answerExhaustSystem, // Tipo de Sistema de Escape
+	answerlicensePlate // Pais de Matriculación "spain", "france", "portugal", italy"
 );
 
 console.log(coche1);
